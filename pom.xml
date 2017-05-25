@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.xeline</groupId>
-  <artifactId>xeline-website</artifactId>
-  <name>xeline-website</name>
+  <artifactId>xeline-web-service</artifactId>
+  <name>xeline-web-service</name>
   <packaging>war</packaging>
   <version>1.0.0-BUILD-SNAPSHOT</version>
+
   <properties>
-  
+
     <project.java.version>1.8</project.java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -23,7 +25,9 @@
     <!-- Jackson -->
     <jackson.version>2.8.8</jackson.version>
     <log4j.version>1.2.15</log4j.version>
+    <jersey.version>2.15</jersey.version>
   </properties>
+
   <dependencies>
     <!-- Spring -->
     <dependency>
@@ -162,6 +166,17 @@
       </exclusions>
       <scope>runtime</scope>
     </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.servlet</groupId>
+          <artifactId>servlet-api</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
 
     <!-- @Inject -->
     <dependency>
@@ -169,12 +184,12 @@
       <artifactId>javax.inject</artifactId>
       <version>1</version>
     </dependency>
-        
+
     <!-- Servlet -->
     <dependency>
       <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -188,21 +203,46 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
-  
+
+    <!-- Jersey -->
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.ext</groupId>
+      <artifactId>jersey-spring3</artifactId>
+    </dependency> 
+    <dependency>
+      <groupId>org.glassfish.jersey.media</groupId>
+      <artifactId>jersey-media-json-jackson</artifactId>
+    </dependency>
+
     <!-- Test -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
-    </dependency>   
-    
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.jersey.test-framework.providers</groupId>
+      <artifactId>jersey-test-framework-provider-inmemory</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>1.9.0</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
-  
+
   <build>
     <plugins>
       <plugin>
-      	<groupId>org.apache.maven.plugins</groupId>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
         <version>2.9</version>
         <configuration>
@@ -223,7 +263,7 @@
           <downloadSources>true</downloadSources>
           <downloadJavadocs>true</downloadJavadocs>
           <wtpversion>2.0</wtpversion>
-          <wtpContextName>xeline-website</wtpContextName>
+          <wtpContextName>xeline-web-service</wtpContextName>
           <additionalProjectFacets>
             <jst.web>3.1</jst.web>
             <wst.jsdt.web>1.0</wst.jsdt.web>
@@ -283,6 +323,31 @@
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.2.4.v20141103</version>
+        <configuration>
+          <scanIntervalSeconds>5</scanIntervalSeconds>
+          <scanTargets>
+            <scanTarget>${basedir}/src/main/java</scanTarget>
+          </scanTargets>
+        </configuration>
+      </plugin>
     </plugins>
+
   </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.glassfish.jersey</groupId>
+        <artifactId>jersey-bom</artifactId>
+        <version>${jersey.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
 </project>
