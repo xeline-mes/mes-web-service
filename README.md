@@ -1,10 +1,12 @@
 Jersey and Spring Example with Java Config (no web.xml)
 
-**Required:** [Maven](https://maven.apache.org/) (to build)
+# Required
+[Maven](https://maven.apache.org/) (to build)
 
-**Recommended:** [cURL](http://curl.haxx.se/) (for testing)
+# Recommended
+[cURL](http://curl.haxx.se/) (for testing)
 
-###Build, Run, and Test:
+# Build, Run, and Test:
 
 1. Package Maven project (after resolving dependencies, two test should be ran and should pass)
 
@@ -37,9 +39,7 @@ Server: Jetty(9.2.4.v20141103)
 Hello, Tom!
 ```
 
------
-
-###UPDATE
+# Data Model
 
 Added Jackson and configured ObjectMapper as a `@Bean` and injected it into the 
 the `ObjectMapperContextResolver`. The configuration is simple. It's just formatting
@@ -50,5 +50,4 @@ You can run the app with `mvn jetty:run` and go to
 ```
 curl -v http://localhost:8080/rest/model
 ```
-
 
