@@ -22,7 +22,7 @@ public class ModelResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getResponse() {
         Model model = new Model();
-        model.name = "Peeskillet";
+        model.name = "Tom";
         return Response.ok(model).build();
     }
 }
