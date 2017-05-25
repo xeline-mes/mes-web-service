@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 @Component
 @Path("/greeting")

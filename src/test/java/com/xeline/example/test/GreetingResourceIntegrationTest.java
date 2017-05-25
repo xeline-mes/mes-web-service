@@ -14,7 +14,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 public class GreetingResourceIntegrationTest extends JerseyTest {
     
@@ -31,12 +31,12 @@ public class GreetingResourceIntegrationTest extends JerseyTest {
     @Test
     public void testGetGreeting() {
         Response response = target("greeting")
-                .queryParam("name", "peeskillet")
+                .queryParam("name", "tom")
                 .request().get();
         
-        Assert.assertEquals("Underdog", response.getHeaderString("X-Powered-By"));
+        Assert.assertEquals("PowerByTest", response.getHeaderString("X-Powered-By"));
         String message = response.readEntity(String.class);
-        Assert.assertEquals("Bonjour, peeskillet!", message);
+        Assert.assertEquals("Hello, tom!", message);
         System.out.println(message);
         
         response.close();

@@ -3,7 +3,7 @@ package com.xeline.example.service;
 
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 public interface GreetingService {
     public String getGreeting(String name);

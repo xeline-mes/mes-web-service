@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 @Path("/model")
 public class ModelResource {

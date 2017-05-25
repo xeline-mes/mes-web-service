@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 @ContextConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -30,8 +30,8 @@ public class GreetingResourceUnitTest {
 
     @Test
     public void testGetGreeting() {
-        Response response = greetingResource.getGreeting("peeskillet");
-        assertEquals("Hello peeskillet", (String) response.getEntity());
+        Response response = greetingResource.getGreeting("tom");
+        assertEquals("Hello tom", (String) response.getEntity());
     }
 
     @Configuration

@@ -10,7 +10,7 @@ import java.util.Map;
 
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 public interface HeaderService {
     public Map<String, String> getHeaders();

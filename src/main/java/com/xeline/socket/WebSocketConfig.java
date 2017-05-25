@@ -10,7 +10,7 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 
 /**
  * @desp websocket配置
- * @author xenron
+ * @author XenRon
  *
  */
 @Configuration

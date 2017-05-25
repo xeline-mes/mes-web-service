@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 @XmlRootElement(name = "model")
 @XmlAccessorType(XmlAccessType.FIELD)

@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {SpringAppConfiguration.class})
@@ -22,8 +22,8 @@ public class GreetingServiceUnitTest {
     private GreetingService greetingService;
     
     @Test
-    public void testFrenchGreeting() {
-        String greeting = greetingService.getGreeting("peeskillet");
-        Assert.assertEquals("Bonjour, peeskillet!", greeting);
+    public void testEnglishGreeting() {
+        String greeting = greetingService.getGreeting("tom");
+        Assert.assertEquals("Hello, tom!", greeting);
     }
 }

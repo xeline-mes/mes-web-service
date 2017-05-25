@@ -1,8 +1,5 @@
 /**
- * 
- */
-/**
- * @author xenro_000
+ * @author XenRon
  *
  */
 package com.xeline.example.test;

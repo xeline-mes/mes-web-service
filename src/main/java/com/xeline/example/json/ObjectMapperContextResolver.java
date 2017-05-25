@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 @Provider
 @Component

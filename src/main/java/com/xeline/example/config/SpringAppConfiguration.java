@@ -4,7 +4,8 @@ package com.xeline.example.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.xeline.example.service.HeaderService;
-import com.xeline.example.service.UnderdogHeaderService;
+import com.xeline.example.service.impl.PowerbyHeaderServiceImpl;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,13 +14,13 @@ import org.springframework.stereotype.Component;
 
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 @Component
 @Configuration
 @ComponentScan(basePackages = {
-    "com.underdog.jersey.spring.example.service",
-    "com.underdog.jersey.spring.example.resource"
+    "com.xeline.example.service",
+    "com.xeline.example.resource"
 })
 public class SpringAppConfiguration {
     
@@ -29,7 +30,7 @@ public class SpringAppConfiguration {
         
         @Bean
         public HeaderService headerService() {
-            return new UnderdogHeaderService();
+            return new PowerbyHeaderServiceImpl();
         }
     }
     

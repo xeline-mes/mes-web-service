@@ -6,12 +6,12 @@ import org.glassfish.jersey.server.ResourceConfig;
 
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 @ApplicationPath("/rest")
 public class JerseyAppConfiguration extends ResourceConfig {
     
     public JerseyAppConfiguration() {
-         packages("com.underdog.jersey.spring.example");
+         packages("com.xeline.example");
     }
 }

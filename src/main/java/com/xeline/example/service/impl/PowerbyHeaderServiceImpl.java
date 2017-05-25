@@ -4,25 +4,27 @@
  * and open the template in the editor.
  */
 
-package com.xeline.example.service;
+package com.xeline.example.service.impl;
 
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+import com.xeline.example.service.HeaderService;
+
 /**
  *
- * @author PaulSamsotha
+ * @author XenRon
  */
 @Component
 @Profile("production")
-public class UnderdogHeaderService implements HeaderService {
+public class PowerbyHeaderServiceImpl implements HeaderService {
 
     @Override
     public Map<String, String> getHeaders() {
         Map<String, String> headers = new HashMap<>();
-        headers.put("X-Powered-By", "Underdog");
+        headers.put("X-Powered-By", "PowerByTest");
         return headers;
     }  
 }

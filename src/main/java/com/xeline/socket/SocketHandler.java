@@ -14,7 +14,7 @@ import org.springframework.web.socket.WebSocketSession;
 
 /**
  * @desp Socket处理类
- * @author xenron
+ * @author XenRon
  *
  */
 @Service

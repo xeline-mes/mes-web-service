@@ -12,7 +12,7 @@ import org.springframework.web.socket.server.HandshakeInterceptor;
 
 /**
  * @desp websocket拦截器
- * @author xenron
+ * @author XenRon
  *
  */
 public class WebSocketInterceptor implements HandshakeInterceptor{
