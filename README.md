@@ -1,12 +1,13 @@
 Jersey and Spring Example with Java Config (no web.xml)
 
-**Required:** Maven (to build)
+**Required:** [Maven](https://maven.apache.org/) (to build)
 
-**Recommended:** [cURL](http://www.google.com/) (for testing)
+**Recommended:** [cURL](http://curl.haxx.se/) (for testing)
 
 ###Build, Run, and Test:
 
 1. Package Maven project (after resolving dependencies, two test should be ran and should pass)
+
 ```
 mvn clean package
 ```
@@ -23,7 +24,9 @@ mvn jetty:run
 ```
 curl -i http://localhost:8080/rest/greeting?name=Tom
 ```
-    **Result**
+
+**Result**
+
 ```
 curl -i http://localhost:8080/rest/greeting?name=Tom
 HTTP/1.1 200 OK

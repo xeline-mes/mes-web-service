@@ -166,6 +166,7 @@
       </exclusions>
       <scope>runtime</scope>
     </dependency>
+    <!--
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
@@ -177,6 +178,7 @@
         </exclusion>
       </exclusions>
     </dependency>
+    -->
 
     <!-- @Inject -->
     <dependency>
