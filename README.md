@@ -1,10 +1,9 @@
-Jersey and Spring Example with Java Config (no web.xml)
 
 # Required
 [Maven](https://maven.apache.org/) (to build)
-
-# Recommended
 [cURL](http://curl.haxx.se/) (for testing)
+[chrome](https://www.google.com/chrome/browser/desktop/index.html) (for testing)
+[postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) (plugin for chrome)
 
 # Build, Run, and Test:
 
@@ -21,7 +20,7 @@ This is not required, but I prefer it in development, rather than deploying to l
 mvn jetty:run
 ```
 
-3. Run cURL command to test (not required, you can simple use the browser url bar
+3-1. Run cURL command to test (not required, you can simple use the browser url bar
 
 ```
 curl -i http://localhost:8080/rest/greeting?name=Tom
@@ -39,15 +38,14 @@ Server: Jetty(9.2.4.v20141103)
 Hello, Tom!
 ```
 
-# Data Model
-
-Added Jackson and configured ObjectMapper as a `@Bean` and injected it into the 
-the `ObjectMapperContextResolver`. The configuration is simple. It's just formatting
-the JSON, just to show the configuration works
-
-You can run the app with `mvn jetty:run` and go to 
-
+3-2. Browse to http://localhost:8080 to see the top page
 ```
-curl -v http://localhost:8080/rest/model
+WebSocket
+http://localhost:8080
+RESTful API
+http://localhost:8080/rest/user/{name}
+ex.
+[GET]http://localhost:8080/rest/user/someuser
+[PUT]http://localhost:8080/rest/user/user1
+[DELETE]http://localhost:8080/rest/user/user1
 ```
-
