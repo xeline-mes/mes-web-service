@@ -29,6 +29,14 @@
   </properties>
 
   <dependencies>
+
+    <!-- xeline -->
+    <dependency>
+      <groupId>com.xeline</groupId>
+      <artifactId>xeline-common</artifactId>
+      <version>1.0.0-BUILD-SNAPSHOT</version>
+    </dependency>
+
     <!-- Spring -->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -353,3 +361,5 @@
   </dependencyManagement>
 
 </project>
+
+
