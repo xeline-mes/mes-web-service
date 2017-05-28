@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>xeline-web-service</artifactId>
+  <name>xeline-web-service</name>
+  <packaging>war</packaging>
+
+  <parent>
+    <groupId>com.xeline</groupId>
+    <artifactId>xeline-bom-war</artifactId>
+    <version>1.0.0-BUILD-SNAPSHOT</version>
+    <relativePath>../mes-bom/pom_war.xml</relativePath>
+  </parent>
+
+  <properties>
+    <jersey-sun.version>1.14</jersey-sun.version>
+  </properties>
+
+  <dependencies>
+
+    <!-- xeline -->
+    <dependency>
+      <groupId>com.xeline</groupId>
+      <artifactId>xeline-common</artifactId>
+      <version>1.0.0-BUILD-SNAPSHOT</version>
+    </dependency>
+
+    <!-- jetty/cometd dependencies - end -->
+    <dependency>
+      <groupId>com.sun.jersey</groupId>
+      <artifactId>jersey-servlet</artifactId>
+      <version>${jersey-sun.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.jersey</groupId>
+      <artifactId>jersey-json</artifactId>
+      <version>${jersey-sun.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.jersey</groupId>
+      <artifactId>jersey-client</artifactId>
+      <version>${jersey-sun.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.cometd.java</groupId>
+      <artifactId>bayeux-api</artifactId>
+      <version>2.5.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.cometd.javascript</groupId>
+      <artifactId>cometd-javascript-jquery</artifactId>
+      <version>2.5.0</version>
+      <type>war</type>
+    </dependency>
+    <dependency>
+      <groupId>org.cometd.java</groupId>
+      <artifactId>cometd-java-server</artifactId>
+      <version>2.5.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.cometd.java</groupId>
+      <artifactId>cometd-websocket-jetty</artifactId>
+      <version>2.5.0</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.cometd.java</groupId>
+          <artifactId>cometd-java-client</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.1</version>
+        <configuration>
+          <hostName>localhost</hostName>
+          <port>8080</port>
+          <path>/mes-website</path>
+          <uriEncoding>UTF-8</uriEncoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <!-- JETTY 8 PLUGIN -->
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>${jetty.version}</version>
+        <configuration>
+          <stopKey>X</stopKey>
+          <stopPort>2048</stopPort>
+          <scanIntervalSeconds>3</scanIntervalSeconds>
+          <webApp>
+            <contextPath>/</contextPath>
+          </webApp>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1.1</version>
+        <configuration>
+          <overlays>
+            <overlay />
+            <overlay>
+              <groupId>org.cometd.javascript</groupId>
+              <artifactId>cometd-javascript-jquery</artifactId>
+            </overlay>
+          </overlays>
+        </configuration>
+      </plugin>
+
+    </plugins>
+
+  </build>
+
+</project>
+
+
