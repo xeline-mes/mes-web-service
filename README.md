@@ -1,51 +1,24 @@
+# Spring 4 RESTFul Controller Example (REST CRUD Example)
+Template example for Spring 4 MVC + RESTful Service with pure Java Configuration (no XML), using Maven build tool.
 
-# Required
-[Maven](https://maven.apache.org/) (to build)
-[cURL](http://curl.haxx.se/) (for testing)
-[chrome](https://www.google.com/chrome/browser/desktop/index.html) (for testing)
-[postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) (plugin for chrome)
+###1. Technologies
+* Spring 4.3.1.RELEASE
+* Maven 3.3.3
 
-# Build, Run, and Test:
-
-1. Package Maven project (after resolving dependencies, two test should be ran and should pass)
-
+###2. To Run this project locally
+```shell
+$ git clone https://github.com/viralpatel/spring4-restful-example
+$ mvn tomcat7:run
 ```
-mvn clean package
-```
+Access ```http://localhost:8080/springrest/customers```
 
-2. Run project with [jetty-maven-plugin](http://eclipse.org/jetty/documentation/current/jetty-maven-plugin.html). 
-This is not required, but I prefer it in development, rather than deploying to local server instance.
+![Spring 4 REST Tutorial](http://img.viralpatel.net/2016/06/spring-4-mvc-rest-controller-service-restful.png) 
 
-```
-mvn jetty:run
-```
+###3. To import this project in Eclipse IDE
+1. ```$ mvn eclipse:eclipse```
+2. Import into Eclipse via **existing projects into workspace** option.
+3. Done. 
 
-3-1. Run cURL command to test (not required, you can simple use the browser url bar
 
-```
-curl -i http://localhost:8080/rest/greeting?name=Tom
-```
-
-**Result**
-
-```
-curl -i http://localhost:8080/rest/greeting?name=Tom
-HTTP/1.1 200 OK
-Content-Type: text/plain
-Content-Length: 20
-Server: Jetty(9.2.4.v20141103)
-
-Hello, Tom!
-```
-
-3-2. Browse to http://localhost:8080 to see the top page
-```
-WebSocket
-http://localhost:8080
-RESTful API
-http://localhost:8080/rest/user/{name}
-ex.
-[GET]http://localhost:8080/rest/user/someuser
-[PUT]http://localhost:8080/rest/user/user1
-[DELETE]http://localhost:8080/rest/user/user1
-```
+###4. Project Demo
+Please refer to this article [Spring 4 RESTFul Service Tutorial](http://viralpatel.net/blogs/spring-4-mvc-rest-example-json/)
