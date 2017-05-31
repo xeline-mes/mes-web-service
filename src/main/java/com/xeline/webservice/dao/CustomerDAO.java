@@ -20,23 +20,10 @@ public class CustomerDAO {
 		customers.add(new Customer(System.currentTimeMillis(), "user4", "name4", "test4@gmail.com", "356-758-8736"));
 	}
 
-	/**
-	 * Returns list of customers from dummy database.
-	 * 
-	 * @return list of customers
-	 */
 	public List list() {
 		return customers;
 	}
 
-	/**
-	 * Return customer object for given id from dummy database. If customer is
-	 * not found for id, returns null.
-	 * 
-	 * @param id
-	 *            customer id
-	 * @return customer object for given id
-	 */
 	public Customer get(Long id) {
 
 		for (Customer c : customers) {
@@ -47,28 +34,12 @@ public class CustomerDAO {
 		return null;
 	}
 
-	/**
-	 * Create new customer in dummy database. Updates the id and insert new
-	 * customer in list.
-	 * 
-	 * @param customer
-	 *            Customer object
-	 * @return customer object with updated id
-	 */
 	public Customer create(Customer customer) {
 		customer.setId(System.currentTimeMillis());
 		customers.add(customer);
 		return customer;
 	}
 
-	/**
-	 * Delete the customer object from dummy database. If customer not found for
-	 * given id, returns null.
-	 * 
-	 * @param id
-	 *            the customer id
-	 * @return id of deleted customer object
-	 */
 	public Long delete(Long id) {
 
 		for (Customer c : customers) {
@@ -81,14 +52,6 @@ public class CustomerDAO {
 		return null;
 	}
 
-	/**
-	 * Update the customer object for given id in dummy database. If customer
-	 * not exists, returns null
-	 * 
-	 * @param id
-	 * @param customer
-	 * @return customer object with id
-	 */
 	public Customer update(Long id, Customer customer) {
 
 		for (Customer c : customers) {
