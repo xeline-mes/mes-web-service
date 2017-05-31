@@ -1,8 +1,5 @@
 /**
- * 
- */
-/**
- * @author xenro_000
+ * @author xenron
  *
  */
 package com.xeline.webservice.persistence;

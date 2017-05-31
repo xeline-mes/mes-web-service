@@ -12,37 +12,39 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 @Configuration
 @MapperScan("com.xeline.webservice.persistence")
 public class DataConfig {
-	@Bean
-	public BasicDataSource dataSource() {
-		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
-		dataSource.setUsername("postgres");
-		dataSource.setPassword("xuran123456");
-		return dataSource;
-	}
-	
-//	@Bean
-//	public BasicDataSource dataSource() {
-//		BasicDataSource dataSource = new BasicDataSource();
-//		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-//		dataSource.setUrl("jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=utf8");
-//		dataSource.setUsername("root");
-//		dataSource.setPassword("123456");
-//		return dataSource;
-//	}
+    
+    // PostgreSQL DataSource
+    @Bean
+    public BasicDataSource dataSource() {
+        BasicDataSource dataSource = new BasicDataSource();
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("xuran123456");
+        return dataSource;
+    }
+    
+//    @Bean
+//    public BasicDataSource dataSource() {
+//        BasicDataSource dataSource = new BasicDataSource();
+//        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//        dataSource.setUrl("jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=utf8");
+//        dataSource.setUsername("root");
+//        dataSource.setPassword("123456");
+//        return dataSource;
+//    }
 
-	@Bean
-	public DataSourceTransactionManager transactionManager() {
-		return new DataSourceTransactionManager(dataSource());
-	}
+    @Bean
+    public DataSourceTransactionManager transactionManager() {
+        return new DataSourceTransactionManager(dataSource());
+    }
 
-	@Bean
-	public SqlSessionFactoryBean sqlSessionFactory() throws Exception {
-		SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-		sessionFactory.setDataSource(dataSource());
-		sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:**/persistence/*.xml"));
-		
-		return sessionFactory;
-	}
+    @Bean
+    public SqlSessionFactoryBean sqlSessionFactory() throws Exception {
+        SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:**/persistence/*.xml"));
+        
+        return sessionFactory;
+    }
 }
