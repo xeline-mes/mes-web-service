@@ -116,7 +116,7 @@
   </dependencies>
 
   <build>
-    <finalName>xeline-web-service</finalName>
+    <finalName>mes-web-service</finalName>
 
     <plugins>
 
