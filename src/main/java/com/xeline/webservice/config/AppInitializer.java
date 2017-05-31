@@ -1,4 +1,4 @@
-package net.viralpatel.spring.config;
+package com.xeline.webservice.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

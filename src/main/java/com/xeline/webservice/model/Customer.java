@@ -1,4 +1,4 @@
-package net.viralpatel.spring.model;
+package com.xeline.webservice.model;
 
 import java.util.Date;
 

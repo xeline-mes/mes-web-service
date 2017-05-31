@@ -1,11 +1,11 @@
-package net.viralpatel.spring.dao;
+package com.xeline.webservice.dao;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import net.viralpatel.spring.model.Customer;
+import com.xeline.webservice.model.Customer;
 
 @Component
 public class CustomerDAO {
