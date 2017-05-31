@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.viralpatel.spring</groupId>
-  <artifactId>Spring4Rest</artifactId>
+  <artifactId>mes-web-service</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Spring 4 Rest Service CRUD Example</name>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Spring 4 Rest Service Example</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -13,6 +13,7 @@
     <springframework.version>4.3.7.RELEASE</springframework.version>
     <spring-framework.version>4.3.7.RELEASE</spring-framework.version>
     <jackson.version>2.7.5</jackson.version>
+    <tomcat.http.port>18080</tomcat.http.port>
   </properties>
 
   <dependencies>
@@ -174,8 +175,19 @@
         </configuration>
       </plugin>
 
-    </plugins>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <!-- lastest version is 2.2 -->
+        <version>2.2</version>
+        <configuration>
+          <port>${tomcat.http.port}</port>
+          <path>/mes-web-service</path>
+        </configuration>
+      </plugin>
 
+    </plugins>
+<!--
     <pluginManagement>
 
       <plugins>
@@ -192,7 +204,7 @@
       </plugins>
 
     </pluginManagement>
-
+-->
   </build>
 
 </project>
